@@ -696,6 +696,7 @@ class ClusterTask < CbrainTask
       self.record_cbraintask_revs
       self.make_cluster_workdir
       self.apply_tool_config_environment do
+        self.addlog(self.full_cluster_workdir)
         Dir.chdir(self.full_cluster_workdir) do
           if ! self.setup  # as defined by subclass
             self.addlog("Failed to setup: 'false' returned by setup().")
